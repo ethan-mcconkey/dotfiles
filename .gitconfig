@@ -1,0 +1,11 @@
+[user]
+	name = ethan-mcconkey
+	email = ethanmcconkey@protonmail.com
+[pull]
+	rebase = true
+	ff = only
+[hub]
+	protocol = ssh
+
+[init]
+	defaultBranch = main
