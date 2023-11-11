@@ -1,0 +1,14 @@
+code/
+.vscode-server/
+.local/
+.nvm/
+.npm/
+.sudo_as_admin_successful
+.gnupg/
+.pyenv/
+.ssh/
+.config/
+.cache/
+.pki/
+.lesshst
+.*_history
