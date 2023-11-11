@@ -1,0 +1,5 @@
+[virtualenvs]
+in-project = true
+create = true
+prompt = "{project_name}-venv-{python_version}"
+prefer-active-python = true
