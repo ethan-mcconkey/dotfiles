@@ -7,3 +7,4 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -a'
 alias l='ls -CF'
+
