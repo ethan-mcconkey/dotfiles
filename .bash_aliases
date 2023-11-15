@@ -2,11 +2,12 @@
 
 alias sysupdate='sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove -y'
 alias cls='clear'
-alias pico='nvim'
-alias spico='nvim'
-alias nano='nvim'
-alias snano='nvim'
-alias vim='nvim'
+alias pico='lvim'
+alias spico='lvim'
+alias nano='lvim'
+alias snano='lvim'
+alias vim='lvim'
+alias nvim='lvim'
 alias cat='batcat'
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 alias ebrc='edit ~/.bashrc'
