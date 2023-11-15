@@ -1,10 +1,48 @@
+#!/bin/bash
+
 alias sysupdate='sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove -y'
 alias cls='clear'
-
-alias grep='grep --color=auto'
-
-alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias la='ls -a'
-alias l='ls -CF'
-
+alias pico='nvim'
+alias spico='nvim'
+alias nano='nvim'
+alias snano='nvim'
+alias vim='nvim'
+alias cat='batcat'
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+alias ebrc='edit ~/.bashrc'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='trash -v'
+alias mkdir='mkdir -p'
+alias ps='ps auxf'
+alias ping='ping -c 10'
+alias less='less -R'
+alias cls='clear'
+alias apt-get='sudo apt-get'
+alias multitail='multitail --no-repeat -c'
+alias freshclam='sudo freshclam'
+alias vi='nvim'
+alias svi='sudo vi'
+alias vis='nvim "+set si"'
+alias home='cd ~'
+alias cd..='cd ..'
+alias rmd='/bin/rm  --recursive --force --verbose '
+alias la='ls -Alh'
+alias ls='ls -aFh --color=always'
+alias lx='ls -lXBh'
+alias lk='ls -lSrh'
+alias lc='ls -lcrh'
+alias lu='ls -lurh'
+alias lr='ls -lRh'
+alias lt='ls -ltrh'
+alias lm='ls -alh |more'
+alias lw='ls -xAh'
+alias ll='ls -Fls'
+alias labc='ls -lap'
+alias lf="ls -l | egrep -v '^d'"
+alias ldir="ls -l | egrep '^d'"
+alias f="find . | grep "
+alias checkcommand="type -t"
+alias rebootsafe='sudo shutdown -r now'
+alias rebootforce='sudo shutdown -r -n now'
+alias whatismyip="whatsmyip"
