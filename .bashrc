@@ -1,6 +1,3 @@
-PS1="\[\033[0;36m\]\u@\h: \[\033[0;91m\]\w %\[\033[0;36m\] \[\n\]$ \[\033[0m\]"
-TERM=xterm-color
-
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
