@@ -47,3 +47,4 @@ alias checkcommand="type -t"
 alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
 alias whatismyip="whatsmyip"
+alias codew='code ./.vscode/*.code-workspace'
