@@ -58,4 +58,13 @@ export NVM_DIR="$HOME/.nvm"
 
 shopt -s autocd
 
+if [ -d "$HOME/.cargo" ]; then
+	. "$HOME/.cargo/env"
+fi
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
 eval "$(starship init bash)"
+

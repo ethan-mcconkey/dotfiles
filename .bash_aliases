@@ -1,11 +1,9 @@
 #!/bin/bash
 
-alias sysupdate='sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove -y'
+alias sysupdate='sudo nala update && sudo nala upgrade -y && sudo nala autoremove -y'
+alias apt='nala'
+alias apt-get='nala'
 alias cls='clear'
-alias pico='lvim'
-alias spico='lvim'
-alias nano='lvim'
-alias snano='lvim'
 alias vim='lvim'
 alias nvim='lvim'
 alias cat='batcat'
