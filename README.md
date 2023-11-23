@@ -3,7 +3,25 @@ A repository with all my linux dotfiles
 
 # Dependencies
 
-## Ubuntu/Debian
+## Linux
+
+**Starship**
+
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+**pyenv**
+```bash
+curl https://pyenv.run | bash
+```
+
+**nvm**
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+```
+
+### Ubuntu/Debian
 
 **Nala**
 ```
