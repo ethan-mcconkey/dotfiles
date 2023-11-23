@@ -9,6 +9,7 @@ code/
 .ssh/
 .config/
 !.config/lvim
+!.config/starship.toml
 .cache/
 .pki/
 .lesshst
