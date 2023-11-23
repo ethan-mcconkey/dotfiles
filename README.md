@@ -11,7 +11,9 @@ sudo apt update
 sudo apt install nala
 ```
 
+Use nala to install the other dependecies
+
 ```bash
 sudo nala update
-sudo nala install bash_completion trash-cli
+sudo nala install bash-completion trash-cli yadm
 ```
