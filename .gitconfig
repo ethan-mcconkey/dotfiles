@@ -1,6 +1,7 @@
 [user]
 	name = ethan-mcconkey
 	email = ethanmcconkey@protonmail.com
+	signingkey = 7D851E1357BAF389
 [pull]
 	rebase = true
 	ff = only
