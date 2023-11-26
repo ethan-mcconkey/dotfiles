@@ -33,5 +33,5 @@ Use nala to install the other dependecies
 
 ```bash
 sudo nala update
-sudo nala install bash-completion trash-cli yadm
+sudo nala install bash-completion trash-cli yadm bat
 ```
