@@ -5,7 +5,7 @@ A repository with all my linux dotfiles
 
 ## Linux
 
-**Starship**
+**starship**
 
 ```bash
 curl -sS https://starship.rs/install.sh | sh
