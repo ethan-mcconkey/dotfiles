@@ -40,3 +40,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 export GPG_TTY=$(tty)
+
+. "$HOME/.cargo/env"
