@@ -46,3 +46,9 @@ Then use nala to install the dependecies
 sudo nala update
 sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client
 ```
+
+Optional dependecies
+```bash
+sudo nala update
+sudo nala install timeshift
+```
