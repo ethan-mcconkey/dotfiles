@@ -2,26 +2,29 @@
 A repository with all my linux dotfiles
 
 # Dependencies
-## Linux
-**starship**
+## [Rust](https://www.rust-lang.org/)
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
+## starship
 ```bash
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-**[pyenv](https://github.com/pyenv/pyenv)**
+## [pyenv](https://github.com/pyenv/pyenv)
 ```bash
 sudo nala update
 sudo nala install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 curl https://pyenv.run | bash
 ```
 
-**nvm**
+## nvm
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 ```
 
-### Ubuntu/Debian
+## Ubuntu/Debian
 **Nala**
 ```bash
 sudo apt update
