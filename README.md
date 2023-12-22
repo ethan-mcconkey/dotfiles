@@ -44,5 +44,5 @@ sudo nala clean
 Then use nala to install the dependecies
 ```bash
 sudo nala update
-sudo nala install bash-completion trash-cli yadm bat
+sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client
 ```
