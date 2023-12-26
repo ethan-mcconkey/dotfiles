@@ -16,6 +16,11 @@ alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
 #---SYSTEM---
 
+#---EDITORS---
+alias vim=lvim
+alias nvim=lvim
+#---EDITORS---
+
 #---FOLDER NAVIGATION---
 alias home='cd ~'
 alias cd..='cd ..'
