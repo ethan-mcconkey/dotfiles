@@ -17,11 +17,36 @@ curl -sS https://starship.rs/install.sh | sh
 sudo nala update
 sudo nala install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 curl https://pyenv.run | bash
+pyenv install 3.11.7
+pyenv global 3.11.7
 ```
 
 ## nvm
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+nvm install --lts
+nvm use --lts
+```
+
+## lazygit
+```bash
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+```
+
+## neovim
+```bash
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage
+sudo mv nvim.appimage /usr/local/bin/nvim
+```
+
+## lunarvim
+```bash
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 ```
 
 ## Ubuntu/Debian
@@ -49,7 +74,7 @@ sudo nala clean
 Then use nala to install the dependecies
 ```bash
 sudo nala update
-sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client
+sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client curl
 ```
 
 Optional dependecies
