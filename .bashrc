@@ -44,3 +44,10 @@ export GPG_TTY=$(tty)
 . "$HOME/.cargo/env"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+if type -P rustup > /dev/null; then
+    source <( rustup completions bash )
+    source <( rustup completions bash cargo )
+fi
+
+eval "$(register-python-argcomplete pipx)"

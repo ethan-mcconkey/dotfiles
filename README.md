@@ -2,6 +2,11 @@
 A repository with all my linux dotfiles
 
 # Dependencies
+## pipx
+```
+pipx install poetry
+pipx install poethepoet
+```
 ## [Rust](https://www.rust-lang.org/)
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -74,11 +79,5 @@ sudo nala clean
 Then use nala to install the dependecies
 ```bash
 sudo nala update
-sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client curl
-```
-
-Optional dependecies
-```bash
-sudo nala update
-sudo nala install timeshift
+sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client curl exa pipx tmux timeshift
 ```

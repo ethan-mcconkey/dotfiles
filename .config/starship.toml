@@ -14,6 +14,7 @@ $git_status\
 [](fg:#0097e1 bg:#00b8ff)\
 $nodejs\
 $python\
+$rust\
 [](#00b8ff)
 󰘧 \
 """
@@ -53,6 +54,12 @@ style = "bg:#00b8ff fg:white"
 format = '[ $symbol $version ]($style)'
 
 [python]
+python_binary ="python"
 symbol = "󰌠"
 style = "bg:#00b8ff fg:white"
-format = '[ $symbol ${version} ]($style)'
+format = '[ $symbol ($virtualenv $version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#00b8ff fg:white"
+format = '[ $symbol ($numver)]($style)'

@@ -12,3 +12,16 @@ mkcd() {
 		mkcd $dirname
 	fi
 }
+
+pyvenvcreate() {
+  if [ $1 ]; then
+    pyenv shell $1
+    if [ $2 ]; then
+      python -m venv $2
+    else
+      echo "Please provide a path to place the virtual environment."
+    fi
+  else
+    echo "Please provide a python version to use."
+  fi
+}
