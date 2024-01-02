@@ -79,5 +79,18 @@ sudo nala clean
 Then use nala to install the dependecies
 ```bash
 sudo nala update
-sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client curl exa pipx tmux timeshift
+sudo nala install bash-completion trash-cli yadm bat openssh-server openssh-client curl exa pipx tmux timeshift fzf tldr
 ```
+
+# Colours
+
+black = '#000000'
+pink = '#E06C75'
+green = '#98C379'
+orange = '#D19A66'
+blue = '#61AFEF'
+purple = '#C678DD'
+cyan = '#56B6C2'
+light_grey = '#ABB2BF'
+dark_gray = '#5C6370'
+white = '#FFFFFF'

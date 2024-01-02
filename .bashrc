@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
 #Load Aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases

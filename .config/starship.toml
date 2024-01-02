@@ -1,65 +1,87 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
-
-format = """
-[](#004fa7)\
-$username\
-$hostname\
-[](fg:#004fa7 bg:#0876b8)\
-$directory\
-[](fg:#0876b8 bg:#0097e1)\
-$git_branch\
-$git_status\
-[](fg:#0097e1 bg:#00b8ff)\
-$nodejs\
-$python\
-$rust\
-[](#00b8ff)
-󰘧 \
+format = """$username$hostname $directory $git_branch $git_status $python$nodejs$rust 
+$cmd_duration$character
 """
+
+add_newline = false
 
 command_timeout = 5000
 
-[hostname]
-ssh_only = true
-style = "bg:#004fa7 fg:white"
-format = '[ $hostname ]($style)'
+palette = 'onedark'
+
+[palettes.onedark]
+black = '#000000'
+pink = '#E06C75'
+green = '#98C379'
+orange = '#D19A66'
+blue = '#61AFEF'
+purple = '#C678DD'
+cyan = '#56B6C2'
+light_grey = '#ABB2BF'
+dark_gray = '#5C6370'
+white = '#FFFFFF'
+
+[character]
+format = '$symbol'
+success_symbol = '[ ](bold green)'
+error_symbol = '[ ](bold red)'
 
 [username]
+style_user = 'bold cyan'
+style_root = 'bold cyan'
+format = '[$user]($style)'
 show_always = true
-style_user = "bg:#004fa7 fg:white"
-format = '[ $user ]($style)'
+
+[hostname]
+style = 'bold cyan'
+format = '[ $ssh_symbol$hostname]($style)'
+ssh_only = true
+ssh_symbol = '󱘖 '
 
 [directory]
-style = "bg:#0876b8 fg:white"
-format = "[ $path ]($style)"
-truncation_length = 5
-truncation_symbol = "…/"
+style = 'bold blue'
+format = 'at [$path]($style)'
+truncation_symbol = "󰉕 /"
 truncate_to_repo = true
-home_symbol = "󱂵 "
+home_symbol = "󱂶 "
 
 [git_branch]
-symbol = "󰘬"
-style = "bg:#0097e1 fg:white"
-format = '[ $symbol $branch ]($style)'
+style = 'bold pink'
+format = 'on [$symbol$branch]($style)'
+symbol = '󰊤 '
 
 [git_status]
-style = "bg:#0097e1 fg:white"
-format = '[ $all_status $ahead_behind ]($style)'
-
-[nodejs]
-symbol = "󰎙"
-style = "bg:#00b8ff fg:white"
-format = '[ $symbol $version ]($style)'
+style = 'bold pink'
+format = '[\[$untracked$staged$modified$renamed$deleted\]]($style)'
+ignore_submodules = true
+untracked = '( $count)'
+modified = '( $count)'
+staged = '( $count)'
+renamed = '( $count)'
+deleted = '( $count)'
 
 [python]
-python_binary ="python"
-symbol = "󰌠"
-style = "bg:#00b8ff fg:white"
-format = '[ $symbol ($virtualenv $version) ]($style)'
+style = 'bold purple'
+format = 'via [$symbol$version( $virtualenv)]($style)'
+python_binary = 'python'
+version_format = '$raw'
+symbol = '󰌠 '
+
+[nodejs]
+style = 'bold purple'
+format = 'via [$symbol($version)]($style)'
+version_format = '$raw'
+symbol = '󰎙 '
 
 [rust]
-symbol = ""
-style = "bg:#00b8ff fg:white"
-format = '[ $symbol ($numver)]($style)'
+style = 'bold purple'
+format = 'via [$symbol($version)]($style)'
+version_format = '$raw'
+symbol = '󱘗 '
+
+
+[cmd_duration]
+style = 'bold orange'
+format = 'took [$duration]($style)'
+min_time = 5000
