@@ -1,40 +1,62 @@
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+#!/bin/zsh
 
-if [[ -f ~/.zsh_aliases.sh ]]; then
-  source ~/.zsh_aliases.sh
+# COMPLETIONS 
+autoload -Uz compinit
+compinit
+
+autoload -U bashcompinit
+bashcompinit
+
+# ZSH 
+ZSH_CONFIG="$HOME/.config/zsh/"
+
+if [[ -d $ZSH_CONFIG ]]; then
+  if [[ -f $ZSH_CONFIG/exports.zsh ]]; then
+    source $ZSH_CONFIG/exports.zsh
+  fi
+
+  if [[ -f $ZSH_CONFIG/aliases.zsh ]]; then
+    source $ZSH_CONFIG/aliases.zsh ]]
+  fi
+
+  if [[ -f $ZSH_CONFIG/functions.zsh ]]; then
+    source $ZSH_CONFIG/functions.zsh
+  fi
+
+  if [[ -f $ZSH_CONFIG/options.zsh ]]; then
+    source $ZSH_CONFIG/options.zsh
+  fi
+
+  if [[ -f $ZSH_CONFIG/completions.zsh ]]; then
+    source $ZSH_CONFIG/completions.zsh
+  fi
+
+  if [[ -f $ZSH_CONFIG/init.zsh ]]; then
+    source $ZSH_CONFIG/init.zsh
+  fi
 fi
 
-if [[ -f ~/.zsh_functions.sh ]]; then
-  source ~/.zsh_functions.sh
+# HISTORY 
+HISTSIZE=1000 # 1000 lines of history loaded into memory
+SAVEHIST=10000 # 10000 lines of history saved to disk
+HISTFILE="$XDG_CACHE_HOME/zsh_history"
+
+# PLUGINS 
+ZSH_PLUGINS="$ZSH_CONFIG/plugins"
+
+if [[ -d $ZSH_PLUGINS ]]; then
+  if [[ -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
+    source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+  fi
+
+  if [[ -d $ZSH_PLUGINS/zsh-syntax-highlighting ]]; then
+    source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  fi
+
+  if [[ -d $ZSH_PLUGINS/zsh-completions ]]; then
+    export FPATH="$ZSH_PLUGINS/zsh-completions/src:$FPATH"
+  fi
 fi
-
-if [[ ! -a ~/.zfunc/_rustup ]]; then
-  rustup completions zsh > ~/.zfunc/_rustup
-fi
-
-if [[ ! -a ~/.zfunc/_cargo ]]; then
-  rustup completions zsh cargo > ~/.zfunc/_cargo  
-fi
-
-fpath+=~/.zfunc
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
-
-export GPG_TTY=$(tty)
-export PATH="$HOME/.local/bin:$PATH"
-
-setopt autocd
-autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-zstyle ':completion:*' list-suffixeszstyle ':completion:*' expand prefix suffix
-autoload bashcompinit && bashcompinit
 
 eval "$(starship init zsh)"
