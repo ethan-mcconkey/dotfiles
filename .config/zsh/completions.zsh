@@ -14,6 +14,10 @@ if [[ -d $ZSH_COMPLETIONS ]]; then
   if [[ ! -f $ZSH_COMPLETIONS/_poetry ]]; then
     poetry completions zsh > $ZSH_COMPLETIONS/_poetry
   fi
+
+  if [[ ! -f $ZSH_COMPLETIONS/_poe ]]; then
+    poe _zsh_completion > $ZSH_COMPLETIONS/_poe
+  fi
 fi
 
 #pipx

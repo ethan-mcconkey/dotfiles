@@ -14,12 +14,9 @@ alias shutdown='sudo shutdown now'
 
 # EDITORS 
 alias vim=lvim
-alias nvim=vim
-alias nano=vim
 alias vimconf='vim ~/.config/lvim/config.lua'
 
 # NAVIGATION 
-alias home='cd ~'
 alias cd..='cd ..'
 
 # FILE/FOLDER LISTING 
