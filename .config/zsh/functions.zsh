@@ -12,3 +12,25 @@ mkcd() {
 		mkcd $dirname
 	fi
 }
+
+update_zsh_plugins() {
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/github
+
+  if [[ -d $HOME/.config/zsh/plugins ]]; then
+    rm -rf $HOME/.config/zsh/plugins/
+    if [[ -f $HOME/.config/zsh/plugins.zsh ]]; then
+      source $HOME/.config/zsh/plugins.zsh
+    else
+      echo "Unable to source \"plugins.zsh\""
+    fi
+  else 
+    if [[ -f $HOME/.config/zsh/plugins.zsh ]]; then
+      source $HOME/.config/zsh/plugins.zsh
+    else
+      echo "Unable to source \"plugins.zsh\""
+    fi
+  fi
+
+  exec zsh
+}
