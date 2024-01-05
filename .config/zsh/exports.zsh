@@ -11,6 +11,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 
+export GPG_TTY=$(tty)
+
 export TERM="xterm-256color"
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
