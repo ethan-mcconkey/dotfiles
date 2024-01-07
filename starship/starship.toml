@@ -53,13 +53,13 @@ symbol = '󰊤 '
 
 [git_status]
 style = 'bold pink'
-format = '[\[$untracked$staged$modified$renamed$deleted\]]($style)'
+format = '[(\[$untracked$staged$modified$renamed$deleted\])]($style)'
 ignore_submodules = true
-untracked = '( $count)'
-modified = '( $count)'
-staged = '( $count)'
-renamed = '( $count)'
-deleted = '( $count)'
+untracked = '( $count )'
+modified = '( $count )'
+staged = '( $count )'
+renamed = '( $count )'
+deleted = '( $count )'
 
 [python]
 style = 'bold purple'
