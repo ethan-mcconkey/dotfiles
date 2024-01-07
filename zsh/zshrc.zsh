@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export DOTFILES_HOME="$HOME/.config/dotfiles"
+export DOTFILES_HOME="$HOME/.dotfiles"
 
 # COMPLETIONS 
 autoload -Uz compinit
