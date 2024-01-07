@@ -32,8 +32,5 @@ alias gc='git clone'
 alias gp='git pull'
 alias gpu='git push'
 alias gs='git status'
-<<<<<<< Updated upstream:.config/zsh/aliases.zsh
-=======
 alias gcm='git commit -m'
 alias ga='git add'
->>>>>>> Stashed changes:zsh/aliases.zsh
