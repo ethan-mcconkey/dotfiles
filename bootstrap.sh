@@ -2,15 +2,6 @@
 
 DOTFILES_DIR=$(pwd)
 
-echo "---------- INSTALLING NALA ----------"
-sudo apt update -y && sudo apt install nala -y
-
-echo "\n---------- SETTING UP NALA SERVERS ----------"
-echo "1 2 3" | sudo nala fetch -y
-
-echo "\n---------- UPGRADING SYSTEM WITH NALA ----------"
-sudo nala upgrade -y
-
 success () {
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
 }
