@@ -1,2 +1,0 @@
-#!/bin/sh
-NALA_DEPS=(trash-cli yadm bat openssh-server openssh-client exa tmux timeshift fzf tldr git make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev qemu-kvm qemu-system qemu-utils python3 python3-pip libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager)
