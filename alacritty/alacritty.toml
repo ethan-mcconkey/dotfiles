@@ -1,0 +1,53 @@
+[window]
+decorations = "Full"
+startup_mode = "Maximized"
+dynamic_title = true
+decorations_theme_variant = "Dark"
+
+[font]
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+size = 16
+
+[colors.primary]
+foreground = "#ABB2BF"
+background = "#282C34"
+
+[colors.normal]
+black = "#000000"
+red = "#E06C75"
+green = "#98C379"
+yellow = "#D19A66"
+blue = "#61AFEF"
+magenta = "#C678DD"
+cyan = "#56B6C2"
+white = "#FFFFFF"
+
+[colors.bright]
+black = "#5C6370"
+red = "#E06C75"
+green = "#98C379"
+yellow = "#D19A66"
+blue = "#61AFEF"
+magenta = "#C678DD"
+cyan = "#56B6C2"
+white = "#ABB2BF"
+
+[colors.dim]
+black = "#5C6370"
+red = "#E06C75"
+green = "#98C379"
+yellow = "#D19A66"
+blue = "#61AFEF"
+magenta = "#C678DD"
+cyan = "#56B6C2"
+white = "#ABB2BF"
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Beam", blinking = "Never" }
+unfocused_hollow = false
+
+[mouse]
+hide_when_typing = true
