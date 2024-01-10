@@ -20,12 +20,17 @@ alias vimconf='vim ~/.config/lvim/config.lua'
 alias cd..='cd ..'
 
 # FILE/FOLDER LISTING 
-alias ls='exa --colour always'
-alias ll='ls --long'
-alias la='ls --all'
-alias lal='la --long'
-alias lt='la --tree'
-alias llt='lt --long'
+alias l='exa --sort=name --icons --classify --color=always'
+alias la='l --all'
+alias ll='l --long --header'
+alias lal='l --all --long --header'
+alias lt='l --tree'
+alias lt1='lt --level=1'
+alias lt2='lt --level=2'
+alias lt3='lt --level=3'
+alias lg='lal --git'
+alias lf='la | grep -v /'
+alias ld='la | grep /'
 
 # GIT 
 alias gc='git clone'
