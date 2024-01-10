@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+export DOTFILES_HOME="$HOME/.dotfiles"
+
 # COMPLETIONS 
 autoload -Uz compinit
 compinit
@@ -7,11 +9,11 @@ compinit
 autoload -U bashcompinit
 bashcompinit
 
-# ZSH 
-ZSH_CONFIG="$HOME/.config/zsh"
+# ZSH
+
+ZSH_CONFIG="$DOTFILES_HOME/zsh"
 
 if [[ -d $ZSH_CONFIG ]]; then
-
   if [[ -f $ZSH_CONFIG/exports.zsh ]]; then
     source $ZSH_CONFIG/exports.zsh
   fi
