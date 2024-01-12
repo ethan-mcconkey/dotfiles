@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export DOTFILES_HOME="$HOME/.dotfiles"
+export DOTFILES_HOME="$XDG_CONFIG_HOME/.dotfiles"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
