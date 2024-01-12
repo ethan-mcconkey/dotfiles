@@ -13,8 +13,8 @@ alias rebootforce='sudo shutdown -r -n now'
 alias shutdown='sudo shutdown now'
 
 # EDITORS 
-alias vim=lvim
-alias vimconf='vim ~/.config/lvim/config.lua'
+alias vi=nvim
+alias vim=nvim
 
 # NAVIGATION 
 alias cd..='cd ..'
