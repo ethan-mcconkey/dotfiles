@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-export DOTFILES_HOME="$XDG_CONFIG_HOME/.dotfiles"
-
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -15,6 +13,8 @@ export TERM="xterm-256color"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export PYENV_ROOT="$HOME/.pyenv"
 export NVM_DIR=$XDG_CONFIG_HOME/nvm
+
+export DOTFILES_HOME="$XDG_CONFIG_HOME/.dotfiles"
 
 path=($HOME/.local/bin/ $HOME/bin $PYENV_ROOT/bin $path)
 fpath=($DOTFILES_HOME/zsh/completions $fpath)
@@ -34,29 +34,13 @@ setopt auto_cd
 
 ZSH_CONFIG="$DOTFILES_HOME/zsh"
 
-if [[ -d $ZSH_CONFIG ]]; then
-  if [[ -f $ZSH_CONFIG/plugins.zsh ]]; then
-    source $ZSH_CONFIG/plugins.zsh
-  fi
-
-  if [[ -f $ZSH_CONFIG/aliases.zsh ]]; then
-    source $ZSH_CONFIG/aliases.zsh ]]
-  fi
-
-  if [[ -f $ZSH_CONFIG/functions.zsh ]]; then
-    source $ZSH_CONFIG/functions.zsh
-  fi
-
-  if [[ -f $ZSH_CONFIG/completions.zsh ]]; then
-    source $ZSH_CONFIG/completions.zsh
-  fi
-fi
+source $ZSH_CONFIG/plugins.zsh
+source $ZSH_CONFIG/aliases.zsh ]]
+source $ZSH_CONFIG/completions.zsh
 
 HISTSIZE=1000
 SAVEHIST=10000
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
-
-eval "$(starship init zsh)"
 
 eval "$(pyenv init -)"
 source $(pyenv root)/completions/pyenv.zsh
@@ -67,3 +51,5 @@ source $(pyenv root)/completions/pyenv.zsh
 . $HOME/.cargo/env
 
 eval "$(register-python-argcomplete pipx)"
+
+eval "$(starship init zsh)"
