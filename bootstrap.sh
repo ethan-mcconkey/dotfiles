@@ -31,3 +31,4 @@ echo "\n---------- CREATING SYMLINKS ----------"
 create_symlink $DOTFILES_DIR/zsh/zshrc.zsh $HOME/.zshrc
 create_symlink $DOTFILES_DIR/starship/starship.toml $HOME/.config/starship/starship.toml
 create_symlink $DOTFILES_DIR/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml
+create_symlink $DOTFILES_DIR/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
