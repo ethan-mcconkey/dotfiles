@@ -4,7 +4,7 @@ A repository with all my linux dotfiles
 # Install
 
 ```bash
-git clone https://github.com/ethan-mcconkey/dotfiles.git $HOME/.config/.dotfiles
+git clone https://github.com/ethan-mcconkey/dotfiles.git ~/.config/.dotfiles
 cd .dotfiles
 ./bootstrap.sh
 ```
