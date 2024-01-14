@@ -13,19 +13,24 @@ alias rebootforce='sudo shutdown -r -n now'
 alias shutdown='sudo shutdown now'
 
 # EDITORS 
-alias vim=lvim
-alias vimconf='vim ~/.config/lvim/config.lua'
+alias vi=nvim
+alias vim=nvim
 
 # NAVIGATION 
 alias cd..='cd ..'
 
 # FILE/FOLDER LISTING 
-alias ls='exa --colour always'
-alias ll='ls --long'
-alias la='ls --all'
-alias lal='la --long'
-alias lt='la --tree'
-alias llt='lt --long'
+alias l='exa --sort=name --icons --classify --color=always'
+alias la='l --all'
+alias ll='l --long --header'
+alias lal='l --all --long --header'
+alias lt='l --tree'
+alias lt1='lt --level=1'
+alias lt2='lt --level=2'
+alias lt3='lt --level=3'
+alias lg='lal --git'
+alias lf='la | grep -v /'
+alias ld='la | grep /'
 
 # GIT 
 alias gc='git clone'
@@ -36,3 +41,19 @@ alias gcm='git commit -m'
 alias ga='git add'
 alias gl='git log'
 alias gd='git diff'
+
+# FUNCTIONS 
+mkcd() {
+  local dirname=
+
+	if [ $1 ]; then
+		if [ -d $1 ]; then
+			cd $1
+		else
+			mkdir -p $1 && cd $1
+		fi
+	else
+		read -p "Please enter a directory name: " dirname
+		mkcd $dirname
+	fi
+}
