@@ -10,7 +10,7 @@ alias rm='trash -v'
 alias mkdir='mkdir -p'
 alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
-alias shutdown='sudo shutdown now'
+alias safeshutdown='sudo shutdown now'
 # ----------------------------
 
 # ---------- EDITORS ----------
