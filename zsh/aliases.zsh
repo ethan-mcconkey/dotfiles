@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# SYSTEM 
+# ---------- SYSTEM ----------
 alias sysupdate='sudo nala upgrade -y'
 alias cat='batcat'
 alias catp='batcat -p'
@@ -11,16 +11,19 @@ alias mkdir='mkdir -p'
 alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
 alias shutdown='sudo shutdown now'
+# ----------------------------
 
-# EDITORS 
+# ---------- EDITORS ----------
 alias vi=lvim
 alias vim=lvim
+# -----------------------------
 
-# NAVIGATION 
+# ---------- NAVIGATION ---------- 
 alias cd..='cd ..'
 alias cddot='cd $HOME/.config/.dotfiles'
+# ---------- NAVIGATION ---------- 
 
-# FILE/FOLDER LISTING 
+# ---------- FILE/FOLDER LISTING ----------
 alias l='exa --sort=name --icons --classify --color=always'
 alias la='l --all'
 alias ll='l --long --header'
@@ -32,8 +35,9 @@ alias lt3='lt --level=3'
 alias lg='lal --git'
 alias lf='la | grep -v /'
 alias ld='la | grep /'
+# -----------------------------------------
 
-# GIT 
+# ---------- GIT ---------- 
 alias gc='git clone'
 alias gp='git pull'
 alias gpu='git push'
@@ -42,19 +46,15 @@ alias gcm='git commit -m'
 alias ga='git add'
 alias gl='git log'
 alias gd='git diff'
+# ------------------------- 
 
-# FUNCTIONS 
+# ---------- FUNCTIONS ----------
 mkcd() {
-  local dirname=
-
-	if [ $1 ]; then
-		if [ -d $1 ]; then
-			cd $1
-		else
-			mkdir -p $1 && cd $1
-		fi
-	else
-		read -p "Please enter a directory name: " dirname
-		mkcd $dirname
-	fi
+  if [[ -d $1 ]]; then
+    cd $1
+  else
+    mkdir -p $1
+    cd $1
+  fi
 }
+# -------------------------------
