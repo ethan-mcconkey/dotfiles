@@ -2,6 +2,10 @@
 
 ZSH_COMPLETIONS_DIR="$DOTFILES_HOME/zsh/completions"
 
+if [[ ! -d $ZSH_COMPLETIONS_DIR ]]; then
+  mkdir -p $ZSH_COMPLETIONS_DIR
+fi
+
 if [[ ! -f $ZSH_COMPLETIONS_DIR/_rustup ]]; then
   rustup completions zsh > $ZSH_COMPLETIONS_DIR/_rustup
 fi
