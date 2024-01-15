@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """$username$hostname $directory $git_branch $git_status $python$nodejs$rust 
+format = """$username$hostname $directory $git_branch $python$nodejs$rust 
 $cmd_duration$character
 """
 
@@ -51,16 +51,6 @@ style = 'bold pink'
 format = 'on [$symbol$branch]($style)'
 symbol = '󰊤 '
 
-[git_status]
-style = 'bold pink'
-format = '[(\[$untracked$staged$modified$renamed$deleted\])]($style)'
-ignore_submodules = true
-untracked = '( $count )'
-modified = '( $count )'
-staged = '( $count )'
-renamed = '( $count )'
-deleted = '( $count )'
-
 [python]
 style = 'bold purple'
 format = 'via [$symbol$version( $virtualenv)]($style)'
@@ -79,7 +69,6 @@ style = 'bold purple'
 format = 'via [$symbol($version)]($style)'
 version_format = '$raw'
 symbol = '󱘗 '
-
 
 [cmd_duration]
 style = 'bold orange'
