@@ -18,7 +18,7 @@ export DOTFILES_HOME="$XDG_CONFIG_HOME/.dotfiles"
 
 path=($HOME/.local/bin/ $HOME/bin $PYENV_ROOT/bin $path)
 fpath=($DOTFILES_HOME/zsh/completions $fpath)
-cdpath=($HOME/Documents/code $DOTFILES_HOME)
+cdpath=($HOME/Documents/code)
 
 autoload -Uz compinit
 compinit

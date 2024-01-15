@@ -18,6 +18,7 @@ alias vim=lvim
 
 # NAVIGATION 
 alias cd..='cd ..'
+alias cddot='cd $HOME/.config/.dotfiles'
 
 # FILE/FOLDER LISTING 
 alias l='exa --sort=name --icons --classify --color=always'
