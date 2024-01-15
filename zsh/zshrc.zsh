@@ -33,12 +33,12 @@ if [ -f $DOTFILES_HOME/zsh/plugins.zsh ]; then
   source $DOTFILES_HOME/zsh/plugins.zsh
 fi
 
-if [ -f $DOTFILES_HOME/zsh/completions.zsh ]; then
-  source $DOTFILES_HOME/zsh/completions.zsh
-fi
-
 if [ -f $DOTFILES_HOME/zsh/apps.zsh ]; then
   source $DOTFILES_HOME/zsh/apps.zsh
+fi
+
+if [ -f $DOTFILES_HOME/zsh/completions.zsh ]; then
+  source $DOTFILES_HOME/zsh/completions.zsh
 fi
 
 if [ -f $DOTFILES_HOME/zsh/aliases.zsh ]; then
