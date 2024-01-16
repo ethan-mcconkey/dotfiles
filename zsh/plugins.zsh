@@ -11,6 +11,6 @@ if [ -d $ZSH_PLUGINS_DIR/zsh-syntax-highlighting ]; then
   source $ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-if [ -d $ZSH_PLUGINS_DIR/zsh-completions ]; then
-  fpath=($ZSH_PLUGINS_DIR/zsh-completions/src $fpath)
+if [[ -d $ZSH_PLUGINS_DIR/zsh-autocomplete ]]; then
+  source $ZSH_PLUGINS_DIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
