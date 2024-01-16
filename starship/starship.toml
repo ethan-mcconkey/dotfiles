@@ -42,6 +42,7 @@ ssh_symbol = '󱘖 '
 [directory]
 style = 'bold blue'
 format = 'at [$path]($style)'
+truncation_length = 5
 truncation_symbol = "󰉕 /"
 truncate_to_repo = true
 home_symbol = "󱂶 "
