@@ -45,4 +45,6 @@ if [ -f $DOTFILES_HOME/zsh/aliases.zsh ]; then
   source $DOTFILES_HOME/zsh/aliases.zsh ]]
 fi
 
+zstyle ':autocomplete:*' delay 0.1
+
 eval "$(starship init zsh)"
