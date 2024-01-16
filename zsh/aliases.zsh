@@ -19,8 +19,8 @@ alias vim=lvim
 # -----------------------------
 
 # ---------- NAVIGATION ---------- 
-alias cd..='cd ..'
-alias cddot='cd $HOME/.config/.dotfiles'
+alias cd='z'
+alias z..='z ..'
 # ---------- NAVIGATION ---------- 
 
 # ---------- FILE/FOLDER LISTING ----------
@@ -35,6 +35,8 @@ alias lt3='lt --level=3'
 alias lg='lal --git'
 alias lf='la | grep -v /'
 alias ld='la | grep /'
+
+alias find='fzf'
 # -----------------------------------------
 
 # ---------- GIT ---------- 
