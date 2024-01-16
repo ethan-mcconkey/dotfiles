@@ -37,9 +37,13 @@ create_symlink() {
 }
 
 create_symlink $DOTFILES_DIR/zsh/zshrc.zsh $HOME/.zshrc
+create_symlink $DOTFILES_DIR/zsh/zshenv.zsh $HOME/.zshenv
 create_symlink $DOTFILES_DIR/starship/starship.toml $HOME/.config/starship/starship.toml
 create_symlink $DOTFILES_DIR/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml
 create_symlink $DOTFILES_DIR/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
 create_symlink $DOTFILES_DIR/lvim/config.lua $HOME/.config/lvim/config.lua
+create_symlink $DOTFILES_DIR/lvim/lua/user/plugins.lua $HOME/.config/lvim/lua/user/plugins.lua
+create_symlink $DOTFILES_DIR/lvim/lua/user/keymaps.lua $HOME/.config/lvim/lua/user/keymaps.lua
+create_symlink $DOTFILES_DIR/lvim/lua/user/options.lua $HOME/.config/lvim/lua/user/options.lua
 
 create_symlink $DOTFILES_DIR/optional/pypoetry/config.toml $HOME/.config/pypoetry/config.toml
