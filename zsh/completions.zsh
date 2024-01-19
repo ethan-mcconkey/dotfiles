@@ -1,25 +1,23 @@
 #!/bin/zsh
 
-ZSH_COMPLETIONS_DIR="$DOTFILES_HOME/zsh/completions"
-
-if [[ ! -d $ZSH_COMPLETIONS_DIR ]]; then
-  mkdir -p $ZSH_COMPLETIONS_DIR
+if [[ ! -d $ZSH_COMPLETIONS ]]; then
+  mkdir -p $ZSH_COMPLETIONS
 fi
 
-if [[ ! -f $ZSH_COMPLETIONS_DIR/_rustup ]]; then
-  rustup completions zsh > $ZSH_COMPLETIONS_DIR/_rustup
+if [[ ! -f $ZSH_COMPLETIONS/_rustup ]]; then
+  rustup completions zsh > $ZSH_COMPLETIONS/_rustup
 fi
 
-if [[ ! -f $ZSH_COMPLETIONS_DIR/_cargo ]]; then
-  rustup completions zsh cargo > $ZSH_COMPLETIONS_DIR/_cargo
+if [[ ! -f $ZSH_COMPLETIONS/_cargo ]]; then
+  rustup completions zsh cargo > $ZSH_COMPLETIONS/_cargo
 fi
 
-if [[ ! -f $ZSH_COMPLETIONS_DIR/_poetry ]]; then
-  poetry completions zsh > $ZSH_COMPLETIONS_DIR/_poetry
+if [[ ! -f $ZSH_COMPLETIONS/_poetry ]]; then
+  poetry completions zsh > $ZSH_COMPLETIONS/_poetry
 fi
 
-if [[ ! -f $ZSH_COMPLETIONS_DIR/_poe ]]; then
-  poe _zsh_completion > $ZSH_COMPLETIONS_DIR/_poe
+if [[ ! -f $ZSH_COMPLETIONS/_poe ]]; then
+  poe _zsh_completion > $ZSH_COMPLETIONS/_poe
 fi
 
 [[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
