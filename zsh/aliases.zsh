@@ -10,16 +10,18 @@ alias rm='trash -v'
 alias mkdir='mkdir -p'
 alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
-alias safeshutdown='sudo shutdown now'
+alias shutdownsafe='sudo shutdown now'
+alias shutdownforce='sudo shutdown -n now'
 # ----------------------------
 
 # ---------- EDITORS ----------
-alias vi=lvim
-alias vim=lvim
+alias vi=nvim
+alias vim=nvim
 # -----------------------------
 
 # ---------- NAVIGATION ---------- 
 alias cd='z'
+alias cd..='z ..'
 alias z..='z ..'
 # ---------- NAVIGATION ---------- 
 
@@ -46,6 +48,7 @@ alias gpu='git push'
 alias gs='git status'
 alias gcm='git commit -m'
 alias ga='git add'
+alias gaa='git add -A'
 alias gl='git log'
 alias gd='git diff'
 # ------------------------- 

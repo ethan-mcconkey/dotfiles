@@ -29,20 +29,20 @@ setopt sharehistory
 setopt autocd
 setopt auto_cd
 
-if [ -f $DOTFILES_HOME/zsh/plugins.zsh ]; then
+if [[ -f $DOTFILES_HOME/zsh/plugins.zsh ]]; then
   source $DOTFILES_HOME/zsh/plugins.zsh
 fi
 
-if [ -f $DOTFILES_HOME/zsh/apps.zsh ]; then
+if [[ -f $DOTFILES_HOME/zsh/apps.zsh ]]; then
   source $DOTFILES_HOME/zsh/apps.zsh
 fi
 
-if [ -f $DOTFILES_HOME/zsh/completions.zsh ]; then
+if [[ -f $DOTFILES_HOME/zsh/completions.zsh ]]; then
   source $DOTFILES_HOME/zsh/completions.zsh
 fi
 
-if [ -f $DOTFILES_HOME/zsh/aliases.zsh ]; then
-  source $DOTFILES_HOME/zsh/aliases.zsh ]]
+if [[ -f $DOTFILES_HOME/zsh/aliases.zsh ]]; then
+  source $DOTFILES_HOME/zsh/aliases.zsh
 fi
 
 zstyle ':autocomplete:*' delay 0.1
