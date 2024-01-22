@@ -18,7 +18,14 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     enabled = false
-  }
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
 
 return plugins

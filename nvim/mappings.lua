@@ -9,7 +9,8 @@ M.general = {
     ["<leader>hc"] = { ":nohlsearch<CR>", opts = opts },
     [";"] = { ":", opts = { nowait = true } },
     ["<leader>e"] = { ":Neotree toggle float<CR>", opts = opts },
-    ["<leader><tab>"] = { ":Neotree toggle left<CR>", opts = opts }
+    ["<leader><tab>"] = { ":Neotree toggle left<CR>", opts = opts },
+    ["<leader>gg"] = { ":LazyGit<CR>", opts = opts }
   }
 }
 
