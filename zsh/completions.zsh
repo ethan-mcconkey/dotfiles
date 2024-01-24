@@ -1,25 +1,15 @@
 #!/bin/zsh
 
-if [[ ! -d $ZSH_COMPLETIONS ]]; then
-  mkdir -p $ZSH_COMPLETIONS
-fi
+[[ ! -d $ZSH_COMPLETIONS ]] && mkdir -p $ZSH_COMPLETIONS
 
-if [[ ! -f $ZSH_COMPLETIONS/_rustup ]]; then
-  rustup completions zsh > $ZSH_COMPLETIONS/_rustup
-fi
+[[ ! -f $ZSH_COMPLETIONS/_rustup ]] && rustup completions zsh > $ZSH_COMPLETIONS/_rustup
 
-if [[ ! -f $ZSH_COMPLETIONS/_cargo ]]; then
-  rustup completions zsh cargo > $ZSH_COMPLETIONS/_cargo
-fi
+[[ ! -f $ZSH_COMPLETIONS/_cargo ]] && rustup completions zsh cargo > $ZSH_COMPLETIONS/_cargo
 
-if [[ ! -f $ZSH_COMPLETIONS/_poetry ]]; then
-  poetry completions zsh > $ZSH_COMPLETIONS/_poetry
-fi
+[[ ! -f $ZSH_COMPLETIONS/_poetry ]] && poetry completions zsh > $ZSH_COMPLETIONS/_poetry
 
-if [[ ! -f $ZSH_COMPLETIONS/_poe ]]; then
-  poe _zsh_completion > $ZSH_COMPLETIONS/_poe
-fi
+[[ ! -f $ZSH_COMPLETIONS/_poe ]] && poe _zsh_completion > $ZSH_COMPLETIONS/_poe
 
 [[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
 
-source $(pyenv root)/completions/pyenv.zsh
+[[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh

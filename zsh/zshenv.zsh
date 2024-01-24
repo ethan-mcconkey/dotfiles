@@ -10,7 +10,9 @@ export GPG_TTY=$(tty)
 export TERM="xterm-256color"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export DOTFILES_HOME="$HOME/.dotfiles"
-export ZSH_PLUGINS="$DOTFILES_HOME/zsh/plugins"
-export ZSH_COMPLETIONS="$DOTFILES_HOME/zsh/completions"
+export ZSH_PLUGINS="$XDG_CONFIG_HOME/zsh/plugins"
+export ZSH_COMPLETIONS="$XDG_CONFIG_HOME/zsh/completions"
+
+[[ -f $ZSH_PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 . "$HOME/.cargo/env"

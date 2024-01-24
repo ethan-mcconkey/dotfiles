@@ -5,7 +5,7 @@ SAVEHIST=10000
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
 
 path=($HOME/.local/bin/ $HOME/bin $PYENV_ROOT/bin $path)
-fpath=($DOTFILES_HOME/zsh/completions $fpath)
+fpath=($ZSH_COMPLETIONS $fpath)
 cdpath=($HOME/Documents/code)
 
 autoload -Uz compinit
@@ -18,9 +18,11 @@ setopt sharehistory
 setopt autocd
 setopt auto_cd
 
-if [[ -f $DOTFILES_HOME/zsh/plugins.zsh ]]; then
-  source $DOTFILES_HOME/zsh/plugins.zsh
-fi
+[[ -f $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+[[ -f $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ -f $ZSH_PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source $ZSH_PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 if [[ -f $DOTFILES_HOME/zsh/apps.zsh ]]; then
   source $DOTFILES_HOME/zsh/apps.zsh
@@ -34,6 +36,6 @@ if [[ -f $DOTFILES_HOME/zsh/aliases.zsh ]]; then
   source $DOTFILES_HOME/zsh/aliases.zsh
 fi
 
-zstyle ':autocomplete:*' delay 0.1
+zstyle ':autocomplete:*' delay 0.25
 
 eval "$(starship init zsh)"
