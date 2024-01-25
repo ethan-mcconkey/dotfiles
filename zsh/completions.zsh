@@ -14,3 +14,4 @@
 
 [[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh
 
+(( $+commands[rg] )) && [[ ! -f $ZSH_COMPLETIONS/_rg ]] && rg --generate complete-zsh > $ZSH_COMPLETIONS/_rg
