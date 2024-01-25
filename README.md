@@ -10,6 +10,11 @@ cd ~/.config/.dotfiles
 ./bootstrap.sh
 ```
 
+Create symlink to zshenv file
+```bash
+sudo ln -s $HOME/.dotfiles/zsh/zshenv.zsh /etc/zsh/zshenv
+```
+
 ## Install Dependencies
 ### [Nala](https://gitlab.com/volian/nala)
 ```bash
