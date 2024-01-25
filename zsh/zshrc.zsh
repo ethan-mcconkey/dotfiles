@@ -2,9 +2,6 @@
 
 HISTSIZE=1000
 SAVEHIST=10000
-path=($HOME/.local/bin/ $HOME/bin $PYENV_ROOT/bin $path)
-fpath=($ZSH_COMPLETIONS $fpath)
-cdpath=($HOME/Documents/code)
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 setopt histignorealldups 
