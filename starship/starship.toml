@@ -11,21 +11,20 @@ command_timeout = 5000
 palette = 'onedark'
 
 [palettes.onedark]
-black = '#000000'
-pink = '#E06C75'
-green = '#98C379'
-orange = '#D19A66'
-blue = '#61AFEF'
-purple = '#C678DD'
-cyan = '#56B6C2'
-light_grey = '#ABB2BF'
-dark_gray = '#5C6370'
-white = '#FFFFFF'
+black = "#5c6370"
+red = "#e06c75"
+green = "#98c379"
+yellow = "#e5c07b"
+blue = "#61afef"
+magenta = "#c678dd"
+cyan = "#56b6c2"
+white = "#828997"
 
 [character]
 format = '$symbol'
 success_symbol = '[ ](bold green)'
 error_symbol = '[ ](bold red)'
+vicmd_symbol = "[󰏤 ](bold green)"
 
 [username]
 style_user = 'bold cyan'
@@ -48,30 +47,30 @@ truncate_to_repo = true
 home_symbol = "󱂶 "
 
 [git_branch]
-style = 'bold pink'
+style = 'bold magenta'
 format = 'on [$symbol$branch]($style)'
 symbol = '󰊤 '
 
 [python]
-style = 'bold purple'
+style = 'bold green'
 format = 'via [$symbol$version( $virtualenv)]($style)'
 python_binary = 'python'
 version_format = '$raw'
 symbol = '󰌠 '
 
 [nodejs]
-style = 'bold purple'
+style = 'bold green'
 format = 'via [$symbol($version)]($style)'
 version_format = '$raw'
 symbol = '󰎙 '
 
 [rust]
-style = 'bold purple'
+style = 'bold green'
 format = 'via [$symbol($version)]($style)'
 version_format = '$raw'
 symbol = '󱘗 '
 
 [cmd_duration]
-style = 'bold orange'
+style = 'bold yellow'
 format = 'took [$duration]($style)'
 min_time = 5000
