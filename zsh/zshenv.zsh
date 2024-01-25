@@ -12,6 +12,7 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export DOTFILES_HOME="$HOME/.dotfiles"
 export ZSH_PLUGINS="$XDG_CONFIG_HOME/zsh/plugins"
 export ZSH_COMPLETIONS="$XDG_CONFIG_HOME/zsh/completions"
+export KEYTIMEOUT=1
 
 [[ -f $ZSH_PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 

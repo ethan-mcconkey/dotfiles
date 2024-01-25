@@ -35,5 +35,6 @@ if [[ -f $DOTFILES_HOME/zsh/aliases.zsh ]]; then
   source $DOTFILES_HOME/zsh/aliases.zsh
 fi
 
+bindkey -v
 
 eval "$(starship init zsh)"
