@@ -14,8 +14,7 @@ create_symlink() {
   ln -sf $src $dest
 }
 
-create_symlink $DOTFILES_DIR/zsh/zshrc.zsh $HOME/.zshrc
-create_symlink $DOTFILES_DIR/zsh/zshenv.zsh $HOME/.zshenv
+create_symlink $DOTFILES_DIR/zsh/zshrc.zsh $HOME/.config/zsh/.zshrc
 create_symlink $DOTFILES_DIR/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml
 create_symlink $DOTFILES_DIR/starship/starship.toml $HOME/.config/starship/starship.toml
 create_symlink $DOTFILES_DIR/nvim $HOME/.config/nvim/lua/custom
