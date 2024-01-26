@@ -1,8 +1,20 @@
 ---@type NvPluginSpec[]
 local plugins = {
   {
-    "github/copilot.vim",
-    lazy = false
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        mode = "foreground",
+        names = false,
+      }
+    }
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -44,5 +56,7 @@ local plugins = {
     },
   }
 }
+
+require "custom.plugins.python"
 
 return plugins
