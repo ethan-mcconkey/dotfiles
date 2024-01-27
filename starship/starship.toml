@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """$username$hostname $directory $git_branch $python$nodejs$rust 
+format = """$username$hostname$directory$git_branch$python$nodejs$rust 
 $cmd_duration$character
 """
 
@@ -40,7 +40,7 @@ ssh_symbol = '󱘖 '
 
 [directory]
 style = 'bold blue'
-format = 'at [$path]($style)'
+format = ' at [$path]($style)'
 truncation_length = 5
 truncation_symbol = "󰉕 /"
 truncate_to_repo = true
@@ -48,25 +48,25 @@ home_symbol = "󱂶 "
 
 [git_branch]
 style = 'bold magenta'
-format = 'on [$symbol$branch]($style)'
+format = ' on [$symbol$branch]($style)'
 symbol = '󰊤 '
 
 [python]
 style = 'bold green'
-format = 'via [$symbol$version( $virtualenv)]($style)'
+format = ' via [$symbol$version( $virtualenv)]($style)'
 python_binary = 'python'
 version_format = '$raw'
 symbol = '󰌠 '
 
 [nodejs]
 style = 'bold green'
-format = 'via [$symbol($version)]($style)'
+format = ' via [$symbol($version)]($style)'
 version_format = '$raw'
 symbol = '󰎙 '
 
 [rust]
 style = 'bold green'
-format = 'via [$symbol($version)]($style)'
+format = ' via [$symbol($version)]($style)'
 version_format = '$raw'
 symbol = '󱘗 '
 
