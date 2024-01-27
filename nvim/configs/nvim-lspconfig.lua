@@ -18,6 +18,7 @@ require("mason-tool-installer").setup({
 		"isort",
 		"mypy",
 		"ruff",
+		"debugpy",
 		"lua-language-server",
 		"stylua",
 	},

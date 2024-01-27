@@ -1,6 +1,25 @@
 ---@type MappingsTable
 local M = {}
 
+M.dap = {
+	plugin = true,
+	n = {
+		["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Toggle DAP breakpoint" },
+	},
+}
+
+M.dap_python = {
+	plugin = true,
+	n = {
+		["<leader>dpr"] = {
+			function()
+				require("dap-python").test_method()
+			end,
+			"Run DAP for python",
+		},
+	},
+}
+
 M.general = {
 	n = {
 		["<leader>w"] = { "<cmd> w <CR>", "Write current buffer" },
