@@ -28,6 +28,5 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
 . "$CARGO_HOME/env"

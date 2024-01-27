@@ -26,7 +26,7 @@ M.general = {
 		["<leader>q"] = { "<cmd> q <CR>", "Quit current buffer" },
 		["<leader>hc"] = { "<cmd> nohlsearch <CR>", "Remove search highlighting" },
 		[";"] = { "<cmd>", "Command Mode" },
-		["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "NvimTree" },
+		["<leader>e"] = { "<cmd> Neotree toggle float <CR>", "Neotree" },
 		["<leader>gg"] = { "<cmd> LazyGit <CR>", "LazyGit" },
 		["<leader>fm"] = {
 			function()
