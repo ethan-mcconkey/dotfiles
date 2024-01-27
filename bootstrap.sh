@@ -19,4 +19,4 @@ create_symlink $DOTFILES_DIR/alacritty/alacritty.toml $HOME/.config/alacritty/al
 create_symlink $DOTFILES_DIR/starship/starship.toml $HOME/.config/starship/starship.toml
 create_symlink $DOTFILES_DIR/nvim $HOME/.config/nvim/lua/custom
 create_symlink $DOTFILES_DIR/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
-create_symlink $DOTFILES_DIR/poetry/poetry.toml $HOME/.config/poetry/poetry.toml
+create_symlink $DOTFILES_DIR/pypoetry/config.toml $HOME/.config/pypoetry/config.toml
