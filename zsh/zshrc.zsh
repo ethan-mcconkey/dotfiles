@@ -21,6 +21,10 @@ zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 zstyle ':autocomplete:*' delay 0.25
 zstyle ':autocomplete:*' add-space executables aliases functions builtins reserved-words commands
 zstyle ':autocomplete:*' recent-dirs zoxide
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
 [[ -f $DOTFILES_HOME/zsh/apps.zsh ]] && source $DOTFILES_HOME/zsh/apps.zsh
 
@@ -29,6 +33,7 @@ zstyle ':autocomplete:*' recent-dirs zoxide
 [[ -f $DOTFILES_HOME/zsh/aliases.zsh ]] && source $DOTFILES_HOME/zsh/aliases.zsh
 
 bindkey -v
+bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
