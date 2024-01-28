@@ -15,13 +15,11 @@ alias shutdownforce='sudo shutdown -n now'
 # ----------------------------
 
 # ---------- EDITORS ----------
-alias vi=nvim
-alias vim=nvim
+alias v=nvim
+alias -s {zsh, py, rs, txt, md, toml, yml}=nvim
 # -----------------------------
 
 # ---------- NAVIGATION ---------- 
-alias cd='z'
-alias cd..='z ..'
 alias z..='z ..'
 # ---------- NAVIGATION ---------- 
 
@@ -39,6 +37,7 @@ alias lf='la | grep -v /'
 alias ld='la | grep /'
 
 alias find='fzf'
+alias grep='rg'
 # -----------------------------------------
 
 # ---------- GIT ---------- 
