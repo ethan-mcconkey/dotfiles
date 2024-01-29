@@ -15,9 +15,12 @@ alias shutdownforce='sudo shutdown -n now'
 # ----------------------------
 
 # ---------- EDITORS ----------
-alias v=nvim
 alias -s {zsh, py, rs, txt, md, toml, yml}=nvim
 # -----------------------------
+
+# ---------- TMUX ----------
+alias mux="tmuxinator"
+# --------------------------
 
 # ---------- NAVIGATION ---------- 
 alias z..='z ..'

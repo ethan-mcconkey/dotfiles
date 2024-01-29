@@ -15,3 +15,5 @@
 [[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh
 
 (( $+commands[rg] )) && [[ ! -f $ZSH_COMPLETIONS/_rg ]] && rg --generate complete-zsh > $ZSH_COMPLETIONS/_rg
+
+(( $+commands[tmuxinator] )) && [[ ! -f $ZSH_COMPLETIONS/_tmuxinator ]] && wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O $ZSH_COMPLETIONS/_tmuxinator
