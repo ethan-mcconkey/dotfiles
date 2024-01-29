@@ -25,7 +25,7 @@ M.general = {
 		["<leader>w"] = { "<cmd> w <CR>", "Write current buffer" },
 		["<leader>q"] = { "<cmd> q <CR>", "Quit current buffer" },
 		["<leader>hc"] = { "<cmd> nohlsearch <CR>", "Remove search highlighting" },
-		[";"] = { "<cmd>", "Command Mode" },
+		[";"] = { ":", "Command Mode", opts = { nowait = true } },
 		["<leader>e"] = { "<cmd> Neotree toggle float <CR>", "Neotree" },
 		["<leader>gg"] = { "<cmd> LazyGit <CR>", "LazyGit" },
 		["<leader>fm"] = {
