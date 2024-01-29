@@ -2,8 +2,8 @@
 
 # ---------- SYSTEM ----------
 alias sysupdate='sudo nala upgrade -y'
-alias cat='batcat'
-alias catp='batcat -p'
+alias cat='bat'
+alias catp='bat -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='trash -v'
