@@ -10,8 +10,6 @@
 
 (( $+commands[poe] )) && [[ ! -f $ZSH_COMPLETIONS/_poe ]] && poe _zsh_completion > $ZSH_COMPLETIONS/_poe
 
-[[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
-
 [[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh
 
 (( $+commands[rg] )) && [[ ! -f $ZSH_COMPLETIONS/_rg ]] && rg --generate complete-zsh > $ZSH_COMPLETIONS/_rg

@@ -21,3 +21,5 @@ create_symlink $DOTFILES_DIR/nvim $HOME/.config/nvim/lua/custom
 create_symlink $DOTFILES_DIR/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
 create_symlink $DOTFILES_DIR/tmuxinator $HOME/.config/tmuxinator
 create_symlink $DOTFILES_DIR/pypoetry/config.toml $HOME/.config/pypoetry/config.toml
+create_symlink $DOTFILES_DIR/xinit/xinitrc $HOME/.xinitrc
+create_symlink $DOTFILES_DIR/awesome/rc.lua $HOME/.config/awesome/rc.lua
