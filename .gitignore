@@ -1,3 +1,2 @@
-zsh/completions/
 info
-nvim/nvim
+nvim/lazy-lock.json
