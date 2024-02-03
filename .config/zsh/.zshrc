@@ -11,11 +11,11 @@ setopt auto_cd
 
 autoload -U colors && colors
 
-[[ -f $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-[[ -f $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[[ -f $ZSH_PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source $ZSH_PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+[[ -f $ZDOTDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source $ZDOTDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 zstyle ':autocomplete:*' delay 0.25
@@ -26,11 +26,11 @@ zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
-[[ -f $DOTFILES_HOME/zsh/apps.zsh ]] && source $DOTFILES_HOME/zsh/apps.zsh
+[[ -f $ZDOTDIR/apps.zsh ]] && source $ZDOTDIR/apps.zsh
 
-[[ -f $DOTFILES_HOME/zsh/completions.zsh ]] && source $DOTFILES_HOME/zsh/completions.zsh
+[[ -f $ZDOTDIR/completions.zsh ]] && source $ZDOTDIR/completions.zsh
 
-[[ -f $DOTFILES_HOME/zsh/aliases.zsh ]] && source $DOTFILES_HOME/zsh/aliases.zsh
+[[ -f $ZDOTDIR/aliases.zsh ]] && source $ZDOTDIR/aliases.zsh
 
 bindkey -v
 bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
