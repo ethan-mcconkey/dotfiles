@@ -1,8 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """$username$hostname$directory$git_branch$python$nodejs$rust 
-$cmd_duration$character
-"""
+format = '''
+[┌ $directory$git_branch$python$nodejs$rust$lua](white)
+[└─$cmd_duration$character](white)
+'''
 
 add_newline = false
 
@@ -21,10 +22,10 @@ cyan = "#56b6c2"
 white = "#828997"
 
 [character]
-format = '$symbol'
-success_symbol = '[ ](bold green)'
-error_symbol = '[ ](bold red)'
-vicmd_symbol = "[󰏤 ](bold green)"
+format = '[$symbol ](white)'
+success_symbol = '\$'
+error_symbol = '\$'
+vicmd_symbol = "V"
 
 [username]
 style_user = 'bold cyan'
@@ -32,19 +33,12 @@ style_root = 'bold cyan'
 format = '[$user]($style)'
 show_always = true
 
-[hostname]
-style = 'bold cyan'
-format = '[ $ssh_symbol$hostname]($style)'
-ssh_only = true
-ssh_symbol = '󱘖 '
-
 [directory]
 style = 'bold blue'
-format = ' at [$path]($style)'
+format = '[$path]($style)'
 truncation_length = 5
-truncation_symbol = "󰉕 /"
+truncation_symbol = " /"
 truncate_to_repo = true
-home_symbol = "󱂶 "
 
 [git_branch]
 style = 'bold magenta'
@@ -70,7 +64,13 @@ format = ' via [$symbol($version)]($style)'
 version_format = '$raw'
 symbol = '󱘗 '
 
+[lua]
+style = 'bold green'
+symbol = '󰢱 '
+format = ' via [$symbol($version)]($style)'
+version_format = '$raw'
+
 [cmd_duration]
 style = 'bold yellow'
-format = 'took [$duration]($style)'
+format = 'took [$duration ]($style)'
 min_time = 5000
