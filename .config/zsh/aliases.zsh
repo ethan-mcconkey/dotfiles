@@ -24,23 +24,19 @@ alias mux="tmuxinator"
 
 # ---------- NAVIGATION ---------- 
 alias z..='z ..'
+alias zz='z -'
 # ---------- NAVIGATION ---------- 
 
 # ---------- FILE/FOLDER LISTING ----------
-alias l='exa --sort=name --icons --classify --color=always'
-alias la='l --all'
-alias ll='l --long --header'
-alias lal='l --all --long --header'
-alias lt='l --tree'
-alias lt1='lt --level=1'
-alias lt2='lt --level=2'
-alias lt3='lt --level=3'
-alias lg='lal --git'
-alias lf='la | grep -v /'
-alias ld='la | grep /'
-
-alias find='fzf'
+alias rg='rg --color=always'
 alias grep='rg'
+
+alias l='exa -a -F --icons --group-directories-first --sort=name'
+alias la='exa -a -F --icons --group-directories-first --sort=name -1'
+alias ll='exa -a -F --icons --group-directories-first --sort=name -l -h --no-time --no-user'
+alias lt='exa -a -F --icons --group-directories-first --sort=name -T'
+alias lf='exa -a -F --icons --group-directories-first --sort=name -1 | rg -v /'
+alias ld='exa -a -F --icons --group-directories-first --sort=name -1 | rg /'
 # -----------------------------------------
 
 # ---------- GIT ---------- 
@@ -62,6 +58,14 @@ function mkcd() {
   else
     mkdir -p $1
     z $1
+  fi
+}
+
+function ltx () {
+  if [[ -z $1 ]]; then
+    lt
+  else
+    lt -L $1
   fi
 }
 # -------------------------------
