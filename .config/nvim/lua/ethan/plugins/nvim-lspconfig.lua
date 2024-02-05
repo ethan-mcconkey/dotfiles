@@ -5,11 +5,16 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"williamboman/mason-lspconfig",
+		{ "j-hui/fidget.nvim", opts = {} },
+		"folke/neodev.nvim",
 	},
 	config = function()
-		require("mason-lspconfig").setup({
+		local mason_lspconfig = require("mason-lspconfig")
+		mason_lspconfig.setup({
 			automatic_installation = true,
 		})
+
+		require("neodev").setup()
 
 		local lspconfig = require("lspconfig")
 
@@ -42,12 +47,13 @@ return {
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 		end
 
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("cmp_nvim_lsp").default_capabilities(
+			vim.lsp.protocol.make_client_capabilities()
+		)
 
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
+		local servers = {
+			lua_ls = {
+				filetypes = { "lua" },
 				Lua = {
 					diagnostics = {
 						globals = { "vim" },
@@ -60,13 +66,20 @@ return {
 					},
 				},
 			},
-			filetypes = { "lua" },
-		})
+			pyright = {
+				filetypes = { "python" },
+			},
+		}
 
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "python" },
+		mason_lspconfig.setup_handlers({
+			function(server_name)
+				require("lspconfig")[server_name].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+					settings = servers[server_name],
+					filetypes = (servers[server_name] or {}).filetypes,
+				})
+			end,
 		})
 	end,
 }
