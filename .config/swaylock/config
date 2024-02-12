@@ -1,3 +1,18 @@
+ignore-empty-password
+font="FiraCode"
+
+clock
+timestr=%R
+datestr=%a, %e %B
+
+fade-in=1
+
+effect-blur=20x6
+
+indicator
+indicator-radius=200
+indicator-thickness=20
+indicator-caps-lock
 
 color=303446
 bs-hl-color=f2d5cf
