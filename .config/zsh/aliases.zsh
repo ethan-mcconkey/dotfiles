@@ -8,8 +8,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias trm='trash-put -v'
 alias mkdir='mkdir -p'
-alias rebootsafe='sudo shutdown -r now'
-alias rebootforce='sudo shutdown -r -n now'
 alias shutdownsafe='sudo shutdown now'
 alias shutdownforce='sudo shutdown -n now'
 # ----------------------------
