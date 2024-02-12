@@ -1,13 +1,19 @@
 return {
-	"navarasu/onedark.nvim",
+	"catppuccin/nvim",
+	name = "catppuccin",
 	priority = 1000,
-	lazy = false,
 	config = function()
-		local onedark = require("onedark")
-		onedark.setup({
-			style = "cool",
-			transparent = true,
+		require("catppuccin").setup({
+			flavour = "frappe",
+			transparent_background = true,
+			show_end_of_buffer = true,
+			term_colors = true,
+			integrations = {
+				cmp = true,
+				treesitter = true,
+			},
 		})
-		onedark.load()
+
+		vim.cmd.colorscheme("catppuccin")
 	end,
 }

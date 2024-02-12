@@ -13,6 +13,8 @@ autoload -U colors && colors
 
 [[ -f $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+[[ -f $ZDOTDIR/plugins/catppuccin-zsh-syntax-highlighting/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh ]] && source $ZDOTDIR/plugins/catppuccin-zsh-syntax-highlighting/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
+
 [[ -f $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [[ -f $ZDOTDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source $ZDOTDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
