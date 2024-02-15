@@ -36,6 +36,7 @@ alias lt='exa -a -F --icons --group-directories-first --sort=name -T'
 alias lf='exa -a -F --icons --group-directories-first --sort=name -1 | rg -v /'
 alias ld='exa -a -F --icons --group-directories-first --sort=name -1 | rg /'
 
+alias stow='stow --verbose'
 # -----------------------------------------
 
 # ---------- GIT ---------- 
