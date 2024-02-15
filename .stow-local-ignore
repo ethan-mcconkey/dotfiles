@@ -1,5 +1,6 @@
 .git
-README.md
 .gitignore
+.gitmodules
+README.md
 LICENSE
 zshenv.zsh
