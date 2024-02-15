@@ -5,7 +5,6 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"williamboman/mason-lspconfig",
-		{ "j-hui/fidget.nvim", opts = {} },
 		"folke/neodev.nvim",
 	},
 	config = function()
