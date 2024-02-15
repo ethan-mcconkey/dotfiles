@@ -5,6 +5,6 @@ eval "$(pyenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 eval "$($RBENV_ROOT/bin/rbenv init - zsh)"

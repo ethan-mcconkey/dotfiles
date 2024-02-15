@@ -21,8 +21,8 @@ alias mux="tmuxinator"
 # --------------------------
 
 # ---------- NAVIGATION ---------- 
-alias z..='z ..'
-alias zz='z -'
+alias cd..='cd ..'
+alias zz='cd -'
 # ---------- NAVIGATION ---------- 
 
 # ---------- FILE/FOLDER LISTING ----------
@@ -35,6 +35,7 @@ alias ll='exa -a -F --icons --group-directories-first --sort=name -l -h --no-tim
 alias lt='exa -a -F --icons --group-directories-first --sort=name -T'
 alias lf='exa -a -F --icons --group-directories-first --sort=name -1 | rg -v /'
 alias ld='exa -a -F --icons --group-directories-first --sort=name -1 | rg /'
+
 # -----------------------------------------
 
 # ---------- GIT ---------- 
