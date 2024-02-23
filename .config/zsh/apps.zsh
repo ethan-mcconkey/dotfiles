@@ -8,3 +8,5 @@ eval "$(pyenv init -)"
 eval "$(zoxide init --cmd cd zsh)"
 
 eval "$($RBENV_ROOT/bin/rbenv init - zsh)"
+
+eval "$(thefuck --alias)"

@@ -10,6 +10,8 @@ alias trm='trash-put -v'
 alias mkdir='mkdir -p'
 alias shutdownsafe='sudo shutdown now'
 alias shutdownforce='sudo shutdown -n now'
+
+alias fix='fuck'
 # ----------------------------
 
 # ---------- EDITORS ----------
