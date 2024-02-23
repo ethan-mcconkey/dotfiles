@@ -17,3 +17,5 @@
 (( $+commands[tmuxinator] )) && [[ ! -f $ZDOTDIR/completions/_tmuxinator ]] && wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O $ZDOTDIR/completions/_tmuxinator
 
 (( $+commands[pipx] )) && eval "$(register-python-argcomplete pipx)"
+
+(( $+commands[pip] )) && eval "$(pip completion --zsh)"
