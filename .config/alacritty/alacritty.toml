@@ -3,7 +3,7 @@ import = [
 ]
 
 [window]
-decorations = "None"
+decorations = "Full"
 startup_mode = "Maximized"
 dynamic_title = true
 decorations_theme_variant = "Dark"
