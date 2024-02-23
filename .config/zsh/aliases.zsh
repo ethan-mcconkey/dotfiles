@@ -23,8 +23,7 @@ alias mux="tmuxinator"
 # --------------------------
 
 # ---------- NAVIGATION ---------- 
-alias cd..='cd ..'
-alias zz='cd -'
+alias cd-='cd -'
 # ---------- NAVIGATION ---------- 
 
 # ---------- FILE/FOLDER LISTING ----------
