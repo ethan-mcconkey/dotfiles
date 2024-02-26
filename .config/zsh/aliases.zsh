@@ -55,10 +55,10 @@ alias gd='git diff'
 # ---------- FUNCTIONS ----------
 function mkcd() {
   if [[ -d $1 ]]; then
-    z $1
+    cd $1
   else
     mkdir -p $1
-    z $1
+    cd $1
   fi
 }
 
