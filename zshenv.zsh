@@ -23,6 +23,7 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export KDEHOME="$XDG_CONFIG_HOME/kde"
 
 export GPG_TTY=$(tty)
 export TERM="xterm-256color"
