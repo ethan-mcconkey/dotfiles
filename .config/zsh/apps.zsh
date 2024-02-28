@@ -12,3 +12,5 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$($RBENV_ROOT/bin/rbenv init - zsh)"
 
 eval "$(thefuck --alias)"
+
+export PATH="$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
