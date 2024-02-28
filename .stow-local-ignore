@@ -3,4 +3,4 @@
 .gitmodules
 README.md
 LICENSE
-zshenv.zsh
+.config/zsh
