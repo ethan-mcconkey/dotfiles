@@ -15,8 +15,8 @@ export GPG_TTY=$(tty)
 export TERM="xterm-256color"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZDOTDIR="$HOME/.config/zsh"
 export KEYTIMEOUT=1
 export EDITOR=nvim
+export PYENV_ROOT="$HOME/.pyenv"
 
-. "$CARGO_HOME/env"
+. $HOME/.cargo/env
