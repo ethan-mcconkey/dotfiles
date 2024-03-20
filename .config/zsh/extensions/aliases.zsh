@@ -69,4 +69,14 @@ function ltx () {
     lt -L $1
   fi
 }
+
+function full_speedtest() {
+  local print = function() {
+    echo "------------------------------------------"
+    echo $1
+    echo "------------------------------------------"
+  }
+
+  print("$(speedtest --simple)")
+}
 # -------------------------------
