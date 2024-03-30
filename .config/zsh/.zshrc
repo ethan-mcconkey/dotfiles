@@ -49,6 +49,8 @@ zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
+eval "$(ssh-agent -s)" > /dev/null && ssh-add
+
 export PATH="$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
 export BAT_THEME="Catppuccin-frappe"
 export FZF_DEFAULT_OPTS=" \
@@ -56,7 +58,7 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
 --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -65,11 +67,16 @@ eval "$(pyenv virtualenv-init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(zoxide init --cmd cd zsh)"
-eval "$($RBENV_ROOT/bin/rbenv init - zsh)"
+
+export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
+eval "$(rbenv init - zsh)"
+
 eval "$(thefuck --alias)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-. $HOME/.cargo/env
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+. $CARGO_HOME/env
 
 export PNPM_HOME="/home/ethan/.local/share/pnpm"
 case ":$PATH:" in
