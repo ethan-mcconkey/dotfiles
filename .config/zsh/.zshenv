@@ -12,6 +12,5 @@ export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 
 export GPG_TTY=$(tty)
 export TERM="xterm-256color"
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export KEYTIMEOUT=1
 export EDITOR=nvim
