@@ -31,12 +31,12 @@ alias cd-='cd -'
 alias rg='rg --color=always'
 alias grep='rg'
 
-alias l='exa -a -F --icons --group-directories-first --sort=name'
-alias la='exa -a -F --icons --group-directories-first --sort=name -1'
-alias ll='exa -a -F --icons --group-directories-first --sort=name -l -h --no-time --no-user'
-alias lt='exa -a -F --icons --group-directories-first --sort=name -T'
-alias lf='exa -a -F --icons --group-directories-first --sort=name -1 | rg -v /'
-alias ld='exa -a -F --icons --group-directories-first --sort=name -1 | rg /'
+alias l='eza -a -F=always --icons=always --group-directories-first --sort=name'
+alias la='l -1'
+alias ll='l -l -h --no-time --no-user'
+alias lt='l -T -I=".git"'
+alias lf='la -f'
+alias ld='la -D'
 
 alias stow='stow --verbose'
 # -----------------------------------------
