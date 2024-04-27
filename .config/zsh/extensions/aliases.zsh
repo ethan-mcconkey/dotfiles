@@ -16,6 +16,7 @@ alias fix='fuck'
 
 # ---------- EDITORS ----------
 alias -s {zsh, py, rs, txt, md, toml, yml}=nvim
+alias nvimconf='cd /home/ethan/.dotfiles/.config/nvim && nvim .'
 # -----------------------------
 
 # ---------- TMUX ----------
