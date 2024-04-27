@@ -31,7 +31,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 
-setopt histignorealldups 
+setopt histignorealldups
 setopt sharehistory
 setopt autocd
 setopt auto_cd
@@ -53,6 +53,7 @@ eval "$(ssh-agent -s)" > /dev/null && ssh-add
 
 export PATH="$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
 export BAT_THEME="Catppuccin-mocha"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
 --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
