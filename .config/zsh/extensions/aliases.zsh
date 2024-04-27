@@ -23,9 +23,9 @@ alias nvimconf='cd /home/ethan/.dotfiles/.config/nvim && nvim .'
 alias mux="tmuxinator"
 # --------------------------
 
-# ---------- NAVIGATION ---------- 
+# ---------- NAVIGATION ----------
 alias cd-='cd -'
-# ---------- NAVIGATION ---------- 
+# ---------- NAVIGATION ----------
 
 # ---------- FILE/FOLDER LISTING ----------
 alias rg='rg --color=always'
@@ -41,7 +41,7 @@ alias ld='la -D'
 alias stow='stow --verbose'
 # -----------------------------------------
 
-# ---------- GIT ---------- 
+# ---------- GIT ----------
 alias gc='git clone'
 alias gp='git pull'
 alias gpu='git push'
@@ -51,7 +51,7 @@ alias ga='git add'
 alias gaa='git add -A'
 alias gl='git log'
 alias gd='git diff'
-# ------------------------- 
+# -------------------------
 
 # ---------- FUNCTIONS ----------
 function mkcd() {
@@ -60,14 +60,6 @@ function mkcd() {
   else
     mkdir -p $1
     cd $1
-  fi
-}
-
-function ltx () {
-  if [[ -z $1 ]]; then
-    lt
-  else
-    lt -L $1
   fi
 }
 
