@@ -11,7 +11,7 @@ fi
 
 if [[ -f /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
   source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-  if ! fast-theme -s | rg -q catppuccin-frappe; then
-    fast-theme XDG:catppuccin-frappe
+  if ! fast-theme -s | rg -q catppuccin-mocha; then
+    fast-theme XDG:catppuccin-mocha
   fi
 fi
