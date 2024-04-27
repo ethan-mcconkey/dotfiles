@@ -11,6 +11,5 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 
 export GPG_TTY=$(tty)
-export TERM="xterm-256color"
 export KEYTIMEOUT=1
 export EDITOR=nvim
