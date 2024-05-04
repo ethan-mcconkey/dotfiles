@@ -1,16 +1,45 @@
 #!/bin/zsh
 
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export FPATH="$XDG_DATA_HOME/zsh/completions:$FPATH"
+
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
+
+export GPG_TTY=$(tty)
+export KEYTIMEOUT=1
+export EDITOR=nvim
+
+# ---------------------------------------------- TMUX ----------------------------------------------
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux new-session -A -s default -n default
 fi
 
+# -------------------------------------------- OPTIONS ---------------------------------------------
+setopt autocd
+setopt auto_cd
+
+autoload -U colors && colors
+
+# -------------------------------------------- HISTORY ---------------------------------------------
 export HISTSIZE=10000
 export SAVEHIST=100000
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-bindkey -v
-bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+setopt histignorealldups
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
 
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+# -------------------------------------------- VI MODE ---------------------------------------------
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
@@ -31,33 +60,24 @@ zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 
-setopt histignorealldups
-setopt sharehistory
-setopt autocd
-setopt auto_cd
+bindkey -v
 
-autoload -U colors && colors
 
-[[ -f $ZDOTDIR/extensions/plugins.zsh ]] && source $ZDOTDIR/extensions/plugins.zsh
+# -------------------------------------------- PLUGINS ---------------------------------------------
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
-zstyle ':autocomplete:*' delay 0.25
-zstyle ':autocomplete:*' add-space executables aliases functions builtins reserved-words commands
-zstyle ':autocomplete:*' recent-dirs zoxide
-zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
-zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+if ! fast-theme -s | rg -q catppuccin-mocha; then
+  fast-theme XDG:catppuccin-mocha
+fi
 
+# -------------------------------------------- APP INIT --------------------------------------------
 eval "$(ssh-agent -s)" > /dev/null && ssh-add
 
 export PATH="$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
 export BAT_THEME="Catppuccin-mocha"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
---color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
---color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
@@ -65,6 +85,10 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(zoxide init --cmd cd zsh)"
@@ -73,6 +97,7 @@ export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
 eval "$(rbenv init - zsh)"
 
 eval "$(thefuck --alias)"
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
@@ -85,12 +110,65 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-[[ -f $ZDOTDIR/extensions/completions.zsh ]] && source $ZDOTDIR/extensions/completions.zsh
+# ------------------------------------------ COMPLETIONS -------------------------------------------
+autoload -Uz compinit
+compinit
 
-[[ -f $ZDOTDIR/extensions/aliases.zsh ]] && source $ZDOTDIR/extensions/aliases.zsh
+zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
+zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-eval "$(starship init zsh)"
+[[ ! -d $XDG_DATA_HOME/zsh/completions ]] && mkdir -p $XDG_DATA_HOME/zsh/completions
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_rustup ]] && \
+  rustup completions zsh > $XDG_DATA_HOME/zsh/completions/_rustup
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_cargo ]] && \
+  rustup completions zsh cargo > $XDG_DATA_HOME/zsh/completions/_cargo
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_poetry ]] && \
+  poetry completions zsh > $XDG_DATA_HOME/zsh/completions/_poetry
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_poe ]] && \
+  poe _zsh_completion > $XDG_DATA_HOME/zsh/completions/_poe
+
+[[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_rg ]] && \
+  rg --generate complete-zsh > $XDG_DATA_HOME/zsh/completions/_rg
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_tmuxinator ]] && \
+  wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O \
+  $XDG_DATA_HOME/zsh/completions/_tmuxinator
+
+eval "$(register-python-argcomplete pipx)"
+
+eval "$(pip completion --zsh)"
+
+# -------------------------------------------- ALIASES ---------------------------------------------
+alias sysupdate='sudo nala upgrade -y'
+alias cat='bat'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rmt='rmtrash -v'
+alias mkdir='mkdir -p'
+alias fix='fuck'
+alias cd-='cd -'
+alias rg='rg --color=always'
+alias grep='rg'
+alias ls='eza -a -F=always --icons=always --group-directories-first --sort=name -1'
+alias la='ls -l -h --no-time --no-user'
+alias lt='ls -T -I=".git"'
+alias stow='stow --verbose'
+
+# ------------------------------------------- FUNCTIONS --------------------------------------------
+function mkcd() {
+  if [[ -d $1 ]]; then
+    cd $1
+  else
+    mkdir -p $1
+    cd $1
+  fi
+}
 
 # ----------------------------------------- POWERLEVEL10K ------------------------------------------
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
