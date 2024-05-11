@@ -62,7 +62,6 @@ preexec() { echo -ne '\e[5 q' ;}
 
 bindkey -v
 
-
 # -------------------------------------------- PLUGINS ---------------------------------------------
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -73,6 +72,8 @@ if ! fast-theme -s | rg -q catppuccin-mocha; then
 fi
 
 # -------------------------------------------- APP INIT --------------------------------------------
+export PATH="$PATH:/usr/local/go/bin"
+
 eval "$(ssh-agent -s)" > /dev/null && ssh-add
 
 export PATH="$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
@@ -145,7 +146,7 @@ eval "$(register-python-argcomplete pipx)"
 eval "$(pip completion --zsh)"
 
 # -------------------------------------------- ALIASES ---------------------------------------------
-alias sysupdate='sudo nala upgrade -y'
+alias sysupdate='yay -Syyu --noconfirm'
 alias cat='bat'
 alias cp='cp -i'
 alias mv='mv -i'
