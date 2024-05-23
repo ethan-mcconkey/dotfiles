@@ -1,0 +1,14 @@
+[user]
+	name = ethan-mcconkey
+	email = 95688781+ethan-mcconkey@users.noreply.github.com
+	signingkey = /home/ethan/.ssh/github_signing_key.pub
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[rebase]
+	updateRefs = true
+[gpg]
+	format = ssh
