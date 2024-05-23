@@ -19,7 +19,6 @@ fi
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export FPATH="$XDG_DATA_HOME/zsh/completions:$FPATH"
 
-export GPG_TTY=$(tty)
 export KEYTIMEOUT=1
 export EDITOR=nvim
 
