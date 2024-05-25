@@ -84,7 +84,6 @@ _fix_cursor() {
 precmd_functions+=(_fix_cursor)
 
 # Aliases
-alias sysupdate='yay -Syyu --noconfirm'
 alias cat='bat'
 alias cp='cp -i'
 alias mv='mv -i'
