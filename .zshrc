@@ -1,3 +1,5 @@
+export DOTFILES_HOME="$HOME/repos/dotfiles"
+
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -5,16 +7,16 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 
-# Transient Prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-# Exports
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export FPATH="$XDG_DATA_HOME/zsh/completions:$FPATH"
 
 export KEYTIMEOUT=1
 export EDITOR=nvim
+
+# Transient Prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # ZINIT Setup
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -106,6 +108,14 @@ function mkcd() {
     cd $1
   fi
 }
+
+function stowdotfiles() {
+  echo $currentdir
+  cd $DOTFILES_HOME
+  stow --target=$HOME -R .
+  cd $currentdir
+}
+
 
 # Apps
 export PATH="$PATH:/usr/local/go/bin"
