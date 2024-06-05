@@ -10,9 +10,7 @@ opacity = 1
 blur = true
 decorations = "None"
 startup_mode = "Maximized"
-dynamic_title = true
-decorations_theme_variant = "Dark"
-padding = { x = 0, y = 0}
+padding = { x = 0, y = 0 }
 
 [font]
 normal = { family = "FiraCode Nerd Font", style = "Regular" }
