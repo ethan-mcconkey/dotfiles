@@ -7,7 +7,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$PATH"
 export FPATH="$XDG_DATA_HOME/zsh/completions:$FPATH"
 
 export KEYTIMEOUT=1
@@ -41,10 +41,65 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
+# Apps
+eval "$(ssh-agent -s)" > /dev/null && ssh-add
+
+export BAT_THEME="Catppuccin-mocha"
+
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export FZF_DEFAULT_OPTS="\
+  --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+eval "$(fzf --zsh)"
+
+eval "$(zoxide init --cmd cd zsh)"
+
+eval "$(thefuck --alias)"
+
+export PNPM_HOME="/home/ethan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # Completion
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
+
+# Custom completions
+[[ ! -d $XDG_DATA_HOME/zsh/completions ]] && mkdir -p $XDG_DATA_HOME/zsh/completions
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_rustup ]] && \
+  rustup completions zsh > $XDG_DATA_HOME/zsh/completions/_rustup
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_cargo ]] && \
+  rustup completions zsh cargo > $XDG_DATA_HOME/zsh/completions/_cargo
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_poetry ]] && \
+  poetry completions zsh > $XDG_DATA_HOME/zsh/completions/_poetry
+
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_poe ]] && \
+  poe _zsh_completion > $XDG_DATA_HOME/zsh/completions/_poe
+
+[[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh
+
+eval "$(register-python-argcomplete pipx)"
+
+eval "$(pip completion --zsh)"
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Load powerlevel10k theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -67,13 +122,6 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Options
 setopt autocd
@@ -114,66 +162,3 @@ function stowdotfiles() {
   stow --target=$HOME -R .
   cd $currentdir
 }
-
-
-# Apps
-export PATH="$PATH:/usr/local/go/bin"
-
-eval "$(ssh-agent -s)" > /dev/null && ssh-add
-
-export BAT_THEME="Catppuccin-mocha"
-
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=0
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-export FZF_DEFAULT_OPTS="\
-  --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
-  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-eval "$(fzf --zsh)"
-
-eval "$(zoxide init --cmd cd zsh)"
-
-export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
-eval "$(rbenv init - zsh)"
-
-eval "$(thefuck --alias)"
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-. $CARGO_HOME/env
-
-export PNPM_HOME="/home/ethan/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# Custom completions
-[[ ! -d $XDG_DATA_HOME/zsh/completions ]] && mkdir -p $XDG_DATA_HOME/zsh/completions
-
-[[ ! -f $XDG_DATA_HOME/zsh/completions/_rustup ]] && \
-  rustup completions zsh > $XDG_DATA_HOME/zsh/completions/_rustup
-
-[[ ! -f $XDG_DATA_HOME/zsh/completions/_cargo ]] && \
-  rustup completions zsh cargo > $XDG_DATA_HOME/zsh/completions/_cargo
-
-[[ ! -f $XDG_DATA_HOME/zsh/completions/_poetry ]] && \
-  poetry completions zsh > $XDG_DATA_HOME/zsh/completions/_poetry
-
-[[ ! -f $XDG_DATA_HOME/zsh/completions/_poe ]] && \
-  poe _zsh_completion > $XDG_DATA_HOME/zsh/completions/_poe
-
-[[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh
-
-[[ ! -f $XDG_DATA_HOME/zsh/completions/_rg ]] && \
-  rg --generate complete-zsh > $XDG_DATA_HOME/zsh/completions/_rg
-
-eval "$(register-python-argcomplete pipx)"
-
-eval "$(pip completion --zsh)"
