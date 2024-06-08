@@ -13,11 +13,6 @@ export FPATH="$XDG_DATA_HOME/zsh/completions:$FPATH"
 export KEYTIMEOUT=1
 export EDITOR=nvim
 
-# Transient Prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # ZINIT Setup
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -25,9 +20,6 @@ if [ ! -d "$ZINIT_HOME" ]; then
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
-
-# powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -47,8 +39,8 @@ eval "$(ssh-agent -s)" > /dev/null && ssh-add
 export BAT_THEME="Catppuccin-mocha"
 
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/shims ]] && export PATH="$PYENV_ROOT/shims:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -101,8 +93,8 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Load powerlevel10k theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Load oh-my-posh
+eval "$(oh-my-posh init zsh --config /home/ethan/.config/omp/config.toml)"
 
 # Keybinds
 bindkey -e
