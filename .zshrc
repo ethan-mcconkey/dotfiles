@@ -7,7 +7,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 
-export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export FPATH="$XDG_DATA_HOME/zsh/completions:$FPATH"
 
 export KEYTIMEOUT=1
@@ -82,6 +82,10 @@ zinit cdreplay -q
 
 [[ -f $PYENV_ROOT/completions/pyenv.zsh ]] && source $(pyenv root)/completions/pyenv.zsh
 
+[[ ! -f $XDG_DATA_HOME/zsh/completions/_tmuxinator ]] && \
+  wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O \
+  $XDG_DATA_HOME/zsh/completions/_tmuxinator
+
 eval "$(register-python-argcomplete pipx)"
 
 eval "$(pip completion --zsh)"
@@ -136,6 +140,7 @@ alias grep='rg'
 alias ls='eza -a -F=always --icons=always --group-directories-first --sort=name -1'
 alias la='ls -l -h --no-time --no-user'
 alias lt='ls -T -I=".git"'
+alias mux='tmuxinator'
 
 # Functions
 function mkcd() {
