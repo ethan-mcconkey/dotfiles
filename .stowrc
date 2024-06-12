@@ -1,0 +1,4 @@
+--verbose=1
+--target=/home/ethan
+--ignore bootstrap.sh
+--ignore .stowrc

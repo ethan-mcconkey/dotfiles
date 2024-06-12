@@ -136,7 +136,6 @@ alias grep='rg'
 alias ls='eza -a -F=always --icons=always --group-directories-first --sort=name -1'
 alias la='ls -l -h --no-time --no-user'
 alias lt='ls -T -I=".git"'
-alias stow='stow --verbose'
 
 # Functions
 function mkcd() {
@@ -146,11 +145,4 @@ function mkcd() {
     mkdir -p $1
     cd $1
   fi
-}
-
-function stowdotfiles() {
-  echo $currentdir
-  cd $DOTFILES_HOME
-  stow --target=$HOME -R .
-  cd $currentdir
 }
