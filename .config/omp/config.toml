@@ -72,5 +72,10 @@ newline = true
     background = 'transparent'
     template = "❯ "
 
+[secondary_prompt]
+  foreground = 'magenta'
+  background = 'transparent'
+  template = '❯❯ '
+
 [palette]
 grey = "#6c7086"
