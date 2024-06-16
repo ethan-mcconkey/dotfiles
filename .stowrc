@@ -1,4 +1,4 @@
 --verbose=1
---target=/home/ethan
+--target=/home/ethan/.config/
 --ignore bootstrap.sh
 --ignore .stowrc
