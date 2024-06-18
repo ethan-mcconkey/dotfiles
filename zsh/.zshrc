@@ -177,3 +177,7 @@ function mkcd() {
     cd $1
   fi
 }
+
+# Display fastfetch
+
+fastfetch
