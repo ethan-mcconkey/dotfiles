@@ -27,4 +27,4 @@ style = { shape = "Beam", blinking = "Never" }
 unfocused_hollow = false
 
 [mouse]
-hide_when_typing = true
+hide_when_typing = false
