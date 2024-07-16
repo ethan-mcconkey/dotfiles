@@ -13,11 +13,6 @@ export FPATH="$XDG_DATA_HOME/zsh/completions:$FPATH"
 export KEYTIMEOUT=1
 export EDITOR=nvim
 
-# Start default tmux session or attach to it
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux new-session -A -s default -n default
-fi
-
 # ZINIT Setup
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
