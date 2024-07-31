@@ -37,7 +37,7 @@ zinit snippet OMZP::command-not-found
 # Apps
 eval "$(ssh-agent -s)" > /dev/null && ssh-add
 
-export BAT_THEME="Catppuccin-mocha"
+export BAT_THEME="Catppuccin Mocha"
 
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
