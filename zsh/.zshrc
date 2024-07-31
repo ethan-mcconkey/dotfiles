@@ -21,6 +21,11 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
+# SSH
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent quiet yes
+zstyle :omz:plugins:ssh-agent identities github_login_key
+
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -33,10 +38,9 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::ssh-agent
 
 # Apps
-eval "$(ssh-agent -s)" > /dev/null && ssh-add
-
 export BAT_THEME="Catppuccin Mocha"
 
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
