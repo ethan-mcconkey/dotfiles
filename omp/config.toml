@@ -1,81 +1,74 @@
-"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+version = 3
 final_space = true
-version = 2
-
-[[blocks]]
-type = "prompt"
-alignment = "left"
-newline = true
-
-    [[blocks.segments]]
-    type = "path"
-    style = "plain"
-    foreground = "blue"
-    background = "transparent"
-    template = "{{if not .Writable }}󰏮 {{ end }}{{ .Path }}"
-
-        [blocks.segments.properties]
-        style = "powerlevel"
-        max_width = 75
-        home_icon = " "
-
-    [[blocks.segments]]
-    type = "git"
-    style = "plain"
-    foreground = "p:grey"
-    background = "transparent"
-    template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
-
-        [blocks.segments.properties]
-        branch_icon = "" 
-        commit_icon = "@"
-        fetch_status = true
-
-    [[blocks.segments]]
-    type = "python"
-    style = "plain"
-    foreground = "green"
-    background = "transparent"
-    template = "  {{ if .Venv }}{{ .Venv }}{{ end }} {{ .Full }}"
-
-[[blocks]]
-type = "prompt"
-alignment = "left"
-newline = true
-
-    [[blocks.segments]]
-    type = "executiontime"
-    style = "plain"
-    foreground = "yellow"
-    background = "transparent"
-    template = "{{ .FormattedMs }} "
-
-        [blocks.segments.properties]
-        style = "round"
-        threshold = 5000
-
-    [[blocks.segments]]
-    type = "text"
-    style = "plain"
-    foreground_templates = [
-        "{{if gt .Code 0}}red{{end}}",
-        "{{if eq .Code 0}}magenta{{end}}",
-    ]
-    background = "transparent"
-    template = "❯"
-
-[transient_prompt]
-    foreground_templates = [
-        "{{if gt .Code 0}}red{{end}}",
-        "{{if eq .Code 0}}magenta{{end}}",
-    ]
-    background = 'transparent'
-    template = "❯ "
-
-[secondary_prompt]
-  foreground = 'magenta'
-  background = 'transparent'
-  template = '❯❯ '
 
 [palette]
-grey = "#6c7086"
+  grey = '#6c7086'
+
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'magenta'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '❯ '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '{{if not .Writable }}󰏮 {{ end }}{{ .Path }}'
+    foreground = 'blue'
+    background = 'transparent'
+    type = 'path'
+
+    [blocks.segments.properties]
+      home_icon = ' '
+      max_width = 75
+      style = 'powerlevel'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    foreground = 'p:grey'
+    background = 'transparent'
+    type = 'git'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '  {{ if .Venv }}{{ .Venv }}{{ end }} {{ .Full }}'
+    foreground = 'green'
+    background = 'transparent'
+    type = 'python'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '{{ .FormattedMs }} '
+    foreground = 'yellow'
+    background = 'transparent'
+    type = 'executiontime'
+
+    [blocks.segments.properties]
+      style = 'round'
+      threshold = 5000
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '❯'
+    background = 'transparent'
+    type = 'text'
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
