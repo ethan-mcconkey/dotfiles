@@ -1,5 +1,4 @@
 --verbose=1
 --target=/home/ethan/.config/
---ignore bootstrap.sh
 --ignore .stowrc
 --ignore .pre-commit-config.yaml
